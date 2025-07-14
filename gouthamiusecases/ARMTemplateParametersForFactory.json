@@ -5,11 +5,23 @@
 		"factoryName": {
 			"value": "gouthamiusecases"
 		},
+		"AzureSqlDatabasecs3_password": {
+			"value": ""
+		},
 		"destination_accountKey": {
 			"value": ""
 		},
 		"source_connectionString": {
 			"value": ""
+		},
+		"AzureSqlDatabasecs3_properties_typeProperties_server": {
+			"value": "gouthamiserver.database.windows.net"
+		},
+		"AzureSqlDatabasecs3_properties_typeProperties_database": {
+			"value": "gouthamidb"
+		},
+		"AzureSqlDatabasecs3_properties_typeProperties_userName": {
+			"value": "gouthami"
 		},
 		"destination_properties_typeProperties_url": {
 			"value": "https://azurestoragedatalake12.dfs.core.windows.net/"
