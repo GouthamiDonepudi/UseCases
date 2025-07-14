@@ -55,7 +55,7 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/DelimitedText1')]",
+			"name": "[concat(parameters('factoryName'), '/2016medalscs2')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -143,63 +143,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/DelimitedText2')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "destination",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"folderPath": "Gold",
-						"fileSystem": "datalakecontainercs2"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/destination')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DelimitedText3')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "destination",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"folderPath": "Silver",
-						"fileSystem": "datalakecontainercs2"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/destination')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DelimitedText4')]",
+			"name": "[concat(parameters('factoryName'), '/bronzecs2')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -227,7 +171,35 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/medals')]",
+			"name": "[concat(parameters('factoryName'), '/goldcs2')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "destination",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "Gold",
+						"fileSystem": "datalakecontainercs2"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/destination')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/medalscs1')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -315,7 +287,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/medalsdl')]",
+			"name": "[concat(parameters('factoryName'), '/medalsdlcs1')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -329,6 +301,34 @@
 					"location": {
 						"type": "AzureBlobFSLocation",
 						"fileSystem": "datalakecontainercs5"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/destination')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/silvercs2')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "destination",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "Silver",
+						"fileSystem": "datalakecontainercs2"
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
@@ -616,14 +616,14 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "medals",
+								"referenceName": "medalscs1",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "medalsdl",
+								"referenceName": "medalsdlcs1",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -665,8 +665,8 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/medals')]",
-				"[concat(variables('factoryId'), '/datasets/medalsdl')]",
+				"[concat(variables('factoryId'), '/datasets/medalscs1')]",
+				"[concat(variables('factoryId'), '/datasets/medalsdlcs1')]",
 				"[concat(variables('factoryId'), '/linkedServices/source')]"
 			]
 		},
@@ -680,7 +680,7 @@
 					"sources": [
 						{
 							"dataset": {
-								"referenceName": "DelimitedText1",
+								"referenceName": "2016medalscs2",
 								"type": "DatasetReference"
 							},
 							"name": "source1"
@@ -689,21 +689,21 @@
 					"sinks": [
 						{
 							"dataset": {
-								"referenceName": "DelimitedText2",
+								"referenceName": "goldcs2",
 								"type": "DatasetReference"
 							},
 							"name": "goldsink"
 						},
 						{
 							"dataset": {
-								"referenceName": "DelimitedText3",
+								"referenceName": "silvercs2",
 								"type": "DatasetReference"
 							},
 							"name": "silverSink"
 						},
 						{
 							"dataset": {
-								"referenceName": "DelimitedText4",
+								"referenceName": "bronzecs2",
 								"type": "DatasetReference"
 							},
 							"name": "bronzeSink"
@@ -772,10 +772,10 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/DelimitedText1')]",
-				"[concat(variables('factoryId'), '/datasets/DelimitedText2')]",
-				"[concat(variables('factoryId'), '/datasets/DelimitedText3')]",
-				"[concat(variables('factoryId'), '/datasets/DelimitedText4')]"
+				"[concat(variables('factoryId'), '/datasets/2016medalscs2')]",
+				"[concat(variables('factoryId'), '/datasets/goldcs2')]",
+				"[concat(variables('factoryId'), '/datasets/silvercs2')]",
+				"[concat(variables('factoryId'), '/datasets/bronzecs2')]"
 			]
 		},
 		{
