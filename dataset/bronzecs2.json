@@ -1,5 +1,5 @@
 {
-	"name": "DelimitedText4",
+	"name": "bronzecs2",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "destination",

@@ -271,13 +271,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "medals",
+						"referenceName": "medalscs1",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "medalsdl",
+						"referenceName": "medalsdlcs1",
 						"type": "DatasetReference"
 					}
 				]

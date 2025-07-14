@@ -6,7 +6,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "DelimitedText1",
+						"referenceName": "2016medalscs2",
 						"type": "DatasetReference"
 					},
 					"name": "source1"
@@ -15,21 +15,21 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "DelimitedText2",
+						"referenceName": "goldcs2",
 						"type": "DatasetReference"
 					},
 					"name": "goldsink"
 				},
 				{
 					"dataset": {
-						"referenceName": "DelimitedText3",
+						"referenceName": "silvercs2",
 						"type": "DatasetReference"
 					},
 					"name": "silverSink"
 				},
 				{
 					"dataset": {
-						"referenceName": "DelimitedText4",
+						"referenceName": "bronzecs2",
 						"type": "DatasetReference"
 					},
 					"name": "bronzeSink"

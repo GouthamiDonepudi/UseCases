@@ -1,5 +1,5 @@
 {
-	"name": "medals",
+	"name": "medalscs1",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "source",
