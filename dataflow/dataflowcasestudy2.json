@@ -5,17 +5,33 @@
 		"typeProperties": {
 			"sources": [
 				{
+					"dataset": {
+						"referenceName": "2016medalscs2",
+						"type": "DatasetReference"
+					},
 					"name": "source1"
 				}
 			],
 			"sinks": [
 				{
+					"dataset": {
+						"referenceName": "goldcs2",
+						"type": "DatasetReference"
+					},
 					"name": "goldsink"
 				},
 				{
+					"dataset": {
+						"referenceName": "silvercs2",
+						"type": "DatasetReference"
+					},
 					"name": "silverSink"
 				},
 				{
+					"dataset": {
+						"referenceName": "bronzecs2",
+						"type": "DatasetReference"
+					},
 					"name": "bronzeSink"
 				}
 			],
@@ -49,7 +65,8 @@
 				"          Medal as string",
 				"     ),",
 				"     allowSchemaDrift: true,",
-				"     validateSchema: false) ~> source1",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source1",
 				"split2@silver split(Medal==\"Gold\",",
 				"     disjoint: false) ~> split1@(gold, goldstream)",
 				"split3@bronze split(Medal==\"Silver\",",
@@ -58,22 +75,76 @@
 				"     disjoint: false) ~> split3@(bronze, bronzestream)",
 				"split1@gold sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true,",
+				"     input(",
+				"          ID as string,",
+				"          Name as string,",
+				"          Gender as string,",
+				"          Age as string,",
+				"          {Height (cm)} as string,",
+				"          {Weight (kg)} as string,",
+				"          Team as string,",
+				"          NOC as string,",
+				"          Games as string,",
+				"          Year as string,",
+				"          Season as string,",
+				"          City as string,",
+				"          Sport as string,",
+				"          Event as string,",
+				"          Medal as string",
+				"     ),",
+				"     umask: 0022,",
 				"     preCommands: [],",
-				"     postCommands: []) ~> goldsink",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> goldsink",
 				"split2@silver sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true,",
+				"     input(",
+				"          ID as string,",
+				"          Name as string,",
+				"          Gender as string,",
+				"          Age as string,",
+				"          {Height (cm)} as string,",
+				"          {Weight (kg)} as string,",
+				"          Team as string,",
+				"          NOC as string,",
+				"          Games as string,",
+				"          Year as string,",
+				"          Season as string,",
+				"          City as string,",
+				"          Sport as string,",
+				"          Event as string,",
+				"          Medal as string",
+				"     ),",
+				"     umask: 0022,",
 				"     preCommands: [],",
-				"     postCommands: []) ~> silverSink",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> silverSink",
 				"split3@bronze sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true,",
+				"     input(",
+				"          ID as string,",
+				"          Name as string,",
+				"          Gender as string,",
+				"          Age as string,",
+				"          {Height (cm)} as string,",
+				"          {Weight (kg)} as string,",
+				"          Team as string,",
+				"          NOC as string,",
+				"          Games as string,",
+				"          Year as string,",
+				"          Season as string,",
+				"          City as string,",
+				"          Sport as string,",
+				"          Event as string,",
+				"          Medal as string",
+				"     ),",
+				"     umask: 0022,",
 				"     preCommands: [],",
-				"     postCommands: []) ~> bronzeSink"
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> bronzeSink"
 			]
 		}
 	}
