@@ -5,33 +5,17 @@
 		"typeProperties": {
 			"sources": [
 				{
-					"dataset": {
-						"referenceName": "2016medalscs2",
-						"type": "DatasetReference"
-					},
 					"name": "source1"
 				}
 			],
 			"sinks": [
 				{
-					"dataset": {
-						"referenceName": "goldcs2",
-						"type": "DatasetReference"
-					},
 					"name": "goldsink"
 				},
 				{
-					"dataset": {
-						"referenceName": "silvercs2",
-						"type": "DatasetReference"
-					},
 					"name": "silverSink"
 				},
 				{
-					"dataset": {
-						"referenceName": "bronzecs2",
-						"type": "DatasetReference"
-					},
 					"name": "bronzeSink"
 				}
 			],
@@ -65,8 +49,7 @@
 				"          Medal as string",
 				"     ),",
 				"     allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> source1",
+				"     validateSchema: false) ~> source1",
 				"split2@silver split(Medal==\"Gold\",",
 				"     disjoint: false) ~> split1@(gold, goldstream)",
 				"split3@bronze split(Medal==\"Silver\",",
@@ -75,25 +58,22 @@
 				"     disjoint: false) ~> split3@(bronze, bronzestream)",
 				"split1@gold sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     umask: 0022,",
-				"     preCommands: [],",
-				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> goldsink",
+				"     skipDuplicateMapOutputs: true,",
+				"     preCommands: [],",
+				"     postCommands: []) ~> goldsink",
 				"split2@silver sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     umask: 0022,",
-				"     preCommands: [],",
-				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> silverSink",
+				"     skipDuplicateMapOutputs: true,",
+				"     preCommands: [],",
+				"     postCommands: []) ~> silverSink",
 				"split3@bronze sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     umask: 0022,",
-				"     preCommands: [],",
-				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> bronzeSink"
+				"     skipDuplicateMapOutputs: true,",
+				"     preCommands: [],",
+				"     postCommands: []) ~> bronzeSink"
 			]
 		}
 	}
