@@ -44,6 +44,7 @@
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
+							"wildcardFileName": "*",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
@@ -158,13 +159,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "employeecs3",
+						"referenceName": "empcs3",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "employeedbcs3",
+						"referenceName": "AzureSqlTablecs3",
 						"type": "DatasetReference"
 					}
 				]
