@@ -1,0 +1,9 @@
+{
+	"name": "gouthamiusecases",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "5af887f9-df36-41bb-a3c1-6c0579a2e411",
+		"tenantId": "76a2ae5a-9f00-4f6b-95ed-5d33d77c4d61"
+	}
+}
