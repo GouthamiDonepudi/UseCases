@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "gouthamiusecases"
+		},
+		"destination_accountKey": {
+			"value": ""
+		},
+		"source_connectionString": {
+			"value": ""
+		},
+		"destination_properties_typeProperties_url": {
+			"value": "https://azurestoragedatalake12.dfs.core.windows.net/"
+		}
+	}
+}
